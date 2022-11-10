@@ -6,9 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginPipe } from './login.pipe';
+import { RegistroPipe } from './registro.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginPipe, RegistroPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
