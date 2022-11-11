@@ -1,0 +1,35 @@
+<ion-content color="secondary">
+  <section class="cadastro">
+    <div class="container-cadastro">
+      <h2 style="color: #000;">Criar conta</h2>
+      <form>
+        <ion-item>
+          <ion-input type="text" placeholder="Nome" clear-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="CPF" clear-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="email" placeholder="E-mail" clear-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha">
+          </ion-input>
+          <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacaoSenha()"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input [type]="mostrarConfirmarSenha ? 'text' : 'password'" placeholder="Confirmar senha">
+          </ion-input>
+          <ion-icon [name]="iconeConfirmarSenha" slot="end" (click)="alterarVisualizacaoConfirmarSenha()">
+          </ion-icon>
+        </ion-item>
+      </form>
+      <ion-button expand="block" color="success">
+        Salvar
+      </ion-button>
+      <ion-button expand="block" routerLink="/login">
+        Voltar
+      </ion-button>
+    </div>
+  </section>
+</ion-content>

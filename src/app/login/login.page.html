@@ -1,0 +1,25 @@
+<ion-content color="secondary">
+  <section class="login">
+    <div class="container-login">
+      <h2 style="color: #000;">Fazer login</h2>
+      <form>
+        <ion-item>
+          <ion-input type="email" placeholder="E-mail" clear-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha"></ion-input>
+          <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacao()"></ion-icon>
+        </ion-item>
+      </form>
+      <ion-button expand="block" color="secondary">
+        Entrar
+      </ion-button>
+      <ion-button expand="block" fill="outline" routerLink="/registro">
+        Registrar
+      </ion-button>
+      <ion-button expand="block" color="secondary" fill="clear">
+        Esqueci minha senha
+      </ion-button>
+    </div>
+  </section>
+</ion-content>

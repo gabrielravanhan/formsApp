@@ -24,3 +24,32 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.login,
+.cadastro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container-login,
+  .container-cadastro {
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #eaedec;
+    width: 375px;
+    padding: 0 10px;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 2%;
+
+    h2 {
+      font-size: 1.4em;
+      margin: 15px 0 2px 0;
+      text-align: center;
+    }
+
+    form {
+      padding: 0 8px;
+    }
+  }
+}
