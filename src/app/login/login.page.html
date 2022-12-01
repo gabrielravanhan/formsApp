@@ -2,13 +2,25 @@
   <section class="login">
     <div class="container-login">
       <h2 style="color: #000;">Fazer login</h2>
-      <form>
+      <form [formGroup]="formLogin">
         <ion-item>
           <ion-input type="email" placeholder="E-mail" clear-input></ion-input>
+          <ng-container *ngFor="let erro of mensagens.email">
+            <span class="msg-erro"
+              *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || formLogin.get('email').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
         </ion-item>
         <ion-item>
           <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha"></ion-input>
           <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacao()"></ion-icon>
+          <ng-container *ngFor="let erro of mensagens.senha">
+            <span class="msg-erro"
+              *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
         </ion-item>
       </form>
       <ion-button expand="block" color="secondary">
