@@ -44,7 +44,7 @@
 
     h2 {
       font-size: 1.4em;
-      margin: 15px 0 2px 0;
+      margin: 15px 0 10px 0;
       text-align: center;
     }
 
@@ -56,7 +56,11 @@
 
 .msg-erro {
   color: #ff0000;
-  font-size: 10px;
+  font-size: 12px;
   clear: both;
-  position: relative;
+  margin-left: 5px;
+}
+
+.div-item {
+  height: 68px;
 }

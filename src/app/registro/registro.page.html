@@ -2,27 +2,68 @@
   <section class="cadastro">
     <div class="container-cadastro">
       <h2 style="color: #000;">Criar conta</h2>
-      <form>
-        <ion-item>
-          <ion-input type="text" placeholder="Nome" clear-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="text" placeholder="CPF" clear-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="email" placeholder="E-mail" clear-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha">
-          </ion-input>
-          <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacaoSenha()"></ion-icon>
-        </ion-item>
-        <ion-item>
-          <ion-input [type]="mostrarConfirmarSenha ? 'text' : 'password'" placeholder="Confirmar senha">
-          </ion-input>
-          <ion-icon [name]="iconeConfirmarSenha" slot="end" (click)="alterarVisualizacaoConfirmarSenha()">
-          </ion-icon>
-        </ion-item>
+      <form [formGroup]="formRegistro">
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="text" placeholder="Nome" clear-input formControlName="nome"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.nome">
+            <span class="msg-erro"
+              *ngIf="formRegistro.get('nome').hasError(erro.tipo) && (formRegistro.get('nome').dirty || formRegistro.get('nome').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="text" placeholder="CPF" clear-input formControlName="cpf"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.cpf">
+            <span class="msg-erro"
+              *ngIf="formRegistro.get('cpf').hasError(erro.tipo) && (formRegistro.get('cpf').dirty || formRegistro.get('cpf').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="email" placeholder="E-mail" clear-input formControlName="email"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.email">
+            <span class="msg-erro"
+              *ngIf="formRegistro.get('email').hasError(erro.tipo) && (formRegistro.get('email').dirty || formRegistro.get('email').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha" formControlName="senha">
+            </ion-input>
+            <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacaoSenha()"></ion-icon>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.senha">
+            <span class="msg-erro"
+              *ngIf="formRegistro.get('senha').hasError(erro.tipo) && (formRegistro.get('senha').dirty || formRegistro.get('senha').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input [type]="mostrarConfirmarSenha ? 'text' : 'password'" placeholder="Confirmar senha"
+              formControlName="confirmaSenha">
+            </ion-input>
+            <ion-icon [name]="iconeConfirmarSenha" slot="end" (click)="alterarVisualizacaoConfirmarSenha()">
+            </ion-icon>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.confirmaSenha">
+            <span class="msg-erro"
+              *ngIf="formRegistro.get('confirmaSenha').hasError(erro.tipo) && (formRegistro.get('confirmaSenha').dirty || formRegistro.get('confirmaSenha').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
       </form>
       <ion-button expand="block" color="success">
         Salvar

@@ -3,25 +3,30 @@
     <div class="container-login">
       <h2 style="color: #000;">Fazer login</h2>
       <form [formGroup]="formLogin">
-        <ion-item>
-          <ion-input type="email" placeholder="E-mail" clear-input></ion-input>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="email" placeholder="E-mail" clear-input formControlName="email"></ion-input>
+          </ion-item>
           <ng-container *ngFor="let erro of mensagens.email">
             <span class="msg-erro"
               *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || formLogin.get('email').touched)">
               {{ erro.mensagem }}
             </span>
           </ng-container>
-        </ion-item>
-        <ion-item>
-          <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha"></ion-input>
-          <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacao()"></ion-icon>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input [type]="mostrarSenha ? 'text' : 'password'" placeholder="Senha" formControlName="senha">
+            </ion-input>
+            <ion-icon [name]="iconeSenha" slot="end" (click)="alterarVisualizacao()"></ion-icon>
+          </ion-item>
           <ng-container *ngFor="let erro of mensagens.senha">
             <span class="msg-erro"
               *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)">
               {{ erro.mensagem }}
             </span>
           </ng-container>
-        </ion-item>
+        </div>
       </form>
       <ion-button expand="block" color="secondary">
         Entrar
