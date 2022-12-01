@@ -21,8 +21,7 @@ export class RegistroPage implements OnInit {
       { tipo: 'minlength', mensagem: 'O nome deve ter pelo menos 3 caracteres.' }
     ],
     cpf: [
-      { tipo: 'required', mensagem: 'O campo CPF é obrigatório.' },
-      { tipo: 'invalido', mensagem: 'CPF Inválido.' }
+      { tipo: 'required', mensagem: 'O campo CPF é obrigatório.' }
     ],
     email: [
       { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },

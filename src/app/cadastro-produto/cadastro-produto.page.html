@@ -1,0 +1,59 @@
+<ion-content color="secondary">
+  <section class="cadastro">
+    <div class="container-cadastro">
+      <h2 style="color: #000;">Cadastrar produto</h2>
+      <form [formGroup]="formCadastro">
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="text" placeholder="Nome" clear-input formControlName="nome"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.nome">
+            <span class="msg-erro"
+              *ngIf="formCadastro.get('nome').hasError(erro.tipo) && (formCadastro.get('nome').dirty || formCadastro.get('nome').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="text" placeholder="Descrição" clear-input formControlName="descricao"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.descricao">
+            <span class="msg-erro"
+              *ngIf="formCadastro.get('descricao').hasError(erro.tipo) && (formCadastro.get('descricao').dirty || formCadastro.get('descricao').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="date" placeholder="Validade" clear-input formControlName="validade"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.validade">
+            <span class="msg-erro"
+              *ngIf="formCadastro.get('validade').hasError(erro.tipo) && (formCadastro.get('validade').dirty || formCadastro.get('validade').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+        <div class="div-item">
+          <ion-item>
+            <ion-input type="number" placeholder="Preço" clear-input formControlName="preco"></ion-input>
+          </ion-item>
+          <ng-container *ngFor="let erro of mensagens.preco">
+            <span class="msg-erro"
+              *ngIf="formCadastro.get('preco').hasError(erro.tipo) && (formCadastro.get('preco').dirty || formCadastro.get('preco').touched)">
+              {{ erro.mensagem }}
+            </span>
+          </ng-container>
+        </div>
+      </form>
+      <ion-button expand="block" color="success">
+        Salvar
+      </ion-button>
+      <ion-button expand="block" routerLink="/login">
+        Voltar
+      </ion-button>
+    </div>
+  </section>
+</ion-content>
