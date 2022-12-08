@@ -12,12 +12,12 @@ export class CadastroProdutoPage implements OnInit {
 
   mensagens = {
     nome: [
-      { tipo: 'required', mensagem: 'O nome é obrigatório.' },
-      { tipo: 'minlength', mensagem: 'O nome deve ter pelo menos 3 caracteres.' }
+      { tipo: 'required', mensagem: 'O nome do produto é obrigatório.' },
+      { tipo: 'minlength', mensagem: 'O nome do produto deve ter pelo menos 3 caracteres.' }
     ],
     descricao: [
       { tipo: 'required', mensagem: 'A descrição é obrigatória.' },
-      { tipo: 'minlength', mensagem: 'O nome deve ter pelo menos 5 caracteres.' }
+      { tipo: 'minlength', mensagem: 'A descrição deve ter pelo menos 5 caracteres.' }
     ],
     validade: [
       { tipo: 'required', mensagem: 'A validade é obrigatória.' }
