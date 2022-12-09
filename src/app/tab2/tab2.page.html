@@ -12,5 +12,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
+  <ion-item-sliding *ngFor="let produto of listaProdutos">
+    <ion-item>
+      <ion-label>
+        <div>
+          <h1>{{ produto.nome }}</h1>
+          <span style="float: right;"> {{ produto.descricao }}</span>
+          <span>{{ produto.validade }}</span>
+          <span>{{ produto.preco }}</span>
+        </div>
+      </ion-label>
+    </ion-item>
 
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="excluirCadastro(produto.nome)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-content>
